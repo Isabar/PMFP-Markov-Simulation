@@ -33,29 +33,29 @@ def print_Sol(filename,Sol,nbF,nbL):
     #transformer la solution en binaire
     for i in range(len(Sol)):
         Size=nbF*nbL
-        print(Size)
+       # print(Size)
         z=np.zeros(Size)
         for j in range(len(Sol[i])):
-            print(i*nbL+(Sol[i][j]))
+          #  print(i*nbL+(Sol[i][j]))
             z[j*nbL+(Sol[i][j])]=1
 
-            print(z)
+           # print(z)
         Sol2.append(z)
         
-    print(Sol2)
+   # print(Sol2)
     
     workbook = xlsxwriter.Workbook(filename)
     worksheet = workbook.add_worksheet('Result')
     
     for k1 in range(len(Sol2)):
         for k2 in range(len(Sol2[k1])):
-            print('write')
+           # print('write')
             worksheet.write(k1,k2,Sol2[k1][k2])
         workbook.define_name(f'Solution{k1}',  f'=Result!$A${k1}:$I${k1}')
     workbook.close()
             
-filename ='C:/Users/baret/Documents/Markov/sol_possibles.xlsx'
+#filename ='C:/Users/baret/Documents/Markov/sol_possibles.xlsx'
 
-Sol=calc_sol()
+#Sol=calc_sol()
   
-print_Sol(filename, Sol, 3, 3)           
+#print_Sol(filename, Sol, 3, 3)           
